@@ -1,0 +1,31 @@
+Solution: add proxy to your maven settings.xml and add to eclipse
+
+Steps: 
+
+a) Find your maven settings.xml file location
+https://kkjavatutorials.com/how-to-add-or-update-the-maven-settings-xml-file-in-eclipse/
+
+Location of Maven Settings.xml File:
+=> The Maven installation directory: $MAVEN_HOME/conf/settings.xml [global settings] (we will use this file)
+=> The user’s home directory: ${user. home}/. m2/settings. xml  [user settings]
+
+b)
+Open the maven settings.xml file in $MAVEN_HOME/conf/settings.xml then follow this link to set proxy
+https://maven.apache.org/guides/mini/guide-proxies.html
+
+  <proxies>
+   <proxy>
+      <id>example-proxy</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>proxy.example.com</host>
+      <port>8080</port>
+      <username>proxyuser</username>
+      <password>somepassword</password>
+      <nonProxyHosts>www.google.com|*.example.com</nonProxyHosts>
+    </proxy>
+  </proxies>
+  
+c) SAVE
+d) Go to Eclipse, Window (in tool bar) -> Preferences -> Maven -> User Settings -> In Global Settings 
+-> Browse to the location of Maven Settings.xml File from step a)

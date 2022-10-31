@@ -1,0 +1,41 @@
+IF YOU ARE USING VISUAL STUDIO CODE TO CREATE MAVEN Project and need proxy for Maven in Visual Studio
+Solution: add proxy to your maven settings.xml and add to Visual
+
+Steps: 
+
+a) Find your maven settings.xml file location
+https://kkjavatutorials.com/how-to-add-or-update-the-maven-settings-xml-file-in-eclipse/
+
+Location of Maven Settings.xml File:
+=> The Maven installation directory: $MAVEN_HOME/conf/settings.xml [global settings] (we will use this file)
+=> The user’s home directory: ${user. home}/. m2/settings. xml  [user settings]
+
+b)
+Open the maven settings.xml file in $MAVEN_HOME/conf/settings.xml then follow this link to set proxy
+https://maven.apache.org/guides/mini/guide-proxies.html
+
+  <proxies>
+   <proxy>
+      <id>example-proxy</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>proxy.example.com</host>
+      <port>8080</port>
+      <username>proxyuser</username>
+      <password>somepassword</password>
+      <nonProxyHosts>www.google.com|*.example.com</nonProxyHosts>
+    </proxy>
+  </proxies>
+  
+c) SAVE
+d) Go to Visual Stuido Code => Ctrl Shift P 
+=> Click Prefernces: Open User Settings (JSON)
+=> Add 2 lines:
+java.configuration.maven.globalSettings": "D:\\PHANMEM\\apache-maven-3.8.5\\conf\\settings.xml",
+    "java.configuration.maven.userSettings": "D:\\PHANMEM\\apache-maven-3.8.5\\conf\\settings.xml",
+	
+	OR
+	
+	
+java.configuration.maven.globalSettings": "D:\\PHANMEM\\apache-maven-3.8.5\\conf",
+    "java.configuration.maven.userSettings": "D:\\PHANMEM\\apache-maven-3.8.5\\conf",
